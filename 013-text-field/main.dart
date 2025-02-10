@@ -4,8 +4,17 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final TextEditingController myController = TextEditingController();
+
+  String formInput = "";
 
   @override
   Widget build(BuildContext context) {
@@ -20,18 +29,41 @@ class MyApp extends StatelessWidget {
           )),
           backgroundColor: Colors.blue,
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          child: TextField(
-            autocorrect: false,
-            enableSuggestions: true,
-            enabled: true,
-            autofocus: true,
-            enableInteractiveSelection: true,
-            obscureText: false,
-            keyboardType: TextInputType.phone,
-            readOnly: true,
-          ),
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: TextField(
+                autocorrect: false,
+                enableSuggestions: true,
+                enabled: true,
+                autofocus: true,
+                enableInteractiveSelection: true,
+                obscureText: false,
+                keyboardType: TextInputType.phone,
+                readOnly: false,
+                controller: myController,
+                onChanged: (value) {
+                  print("status: onchanged");
+                },
+                onSubmitted: (value) {
+                  setState(() {
+                    formInput = value;
+                  });
+                },
+                onEditingComplete: () {
+                  print("status: editing sucess");
+                },
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              formInput,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            )
+          ],
         ),
       ),
     );
