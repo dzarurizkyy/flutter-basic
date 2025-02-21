@@ -72,32 +72,43 @@ class HomePage extends StatelessWidget {
                         horizontal: 14,
                         vertical: 8,
                       ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.blueAccent, // Warna latar belakang
-                          borderRadius:
-                              BorderRadius.circular(10), // Sudut melengkung
-                        ),
-                        child: ListTile(
-                            title: Text(
-                              "This is a text",
-                              style: Theme.of(context).textTheme.headlineSmall,
+                      child: Column(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.blueAccent, // Warna latar belakang
+                              borderRadius:
+                                  BorderRadius.circular(10), // Sudut melengkung
                             ),
-                            leading: CircleAvatar(
-                              backgroundColor: Colors.white,
+                            child: ListTile(
+                                title: Text(
+                                  "This is a text",
+                                  style:
+                                      Theme.of(context).textTheme.headlineSmall,
+                                ),
+                                leading: CircleAvatar(
+                                  backgroundColor: Colors.white,
+                                ),
+                                dense: true,
+                                contentPadding: EdgeInsets.all(20),
+                                visualDensity: VisualDensity(vertical: -3)),
+                          ),
+                          if (index == 99)
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                top: 20,
+                              ),
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: Text("Button"),
+                              ),
                             ),
-                            dense: true,
-                            contentPadding: EdgeInsets.all(20),
-                            visualDensity: VisualDensity(vertical: -3)),
+                        ],
                       ),
                     ),
                   );
                 },
               ),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text("Button"),
             ),
           ],
         ),
