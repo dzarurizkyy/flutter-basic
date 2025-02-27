@@ -8,31 +8,39 @@ class MyApp extends StatelessWidget {
   MyApp({super.key});
 
   final List<Color> myColor = [
-    Colors.red,
-    Colors.green,
-    Colors.blue,
-    Colors.amber
+    Colors.blue[100]!,
+    Colors.blue[200]!,
+    Colors.blue[300]!,
+    Colors.blue[400]!
   ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text(
-              "List View",
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "List View",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.w700,
             ),
-            backgroundColor: Colors.blueGrey,
           ),
-          body: ListView.separated(
+          backgroundColor: Colors.blue,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: 30,
+            horizontal: 20,
+          ),
+          child: ListView.separated(
             scrollDirection: Axis.vertical,
             itemCount: myColor.length,
             itemBuilder: (context, index) {
               return Container(
-                height: 300,
+                height: 330,
                 color: myColor[index],
               );
             },
@@ -43,6 +51,8 @@ class MyApp extends StatelessWidget {
               );
             },
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

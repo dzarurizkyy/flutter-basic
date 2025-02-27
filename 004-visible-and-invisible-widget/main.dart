@@ -10,12 +10,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text("Columm"),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Visible & Invisible Widget",
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w700,
+              fontSize: 20,
+            ),
           ),
-          body: Row(
+          backgroundColor: Colors.blue,
+        ),
+        body: Center(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -41,6 +50,8 @@ class MyApp extends StatelessWidget {
               ),
             ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
