@@ -27,28 +27,16 @@ class MyApp extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Container(
-                height: 300,
-                width: 50,
-                color: Colors.red,
-              ),
-              Container(
-                height: 200,
-                width: 50,
-                color: Colors.green,
-              ),
-              Container(
-                height: 100,
-                width: 50,
-                color: Colors.amber,
-              ),
-              Container(
-                height: 50,
-                width: 50,
-                color: Colors.blue,
-              ),
-            ],
+            children: List.generate(
+              4,
+              (index) {
+                return Container(
+                  height: 400 - (index * 100),
+                  width: 60,
+                  color: Colors.blue[400 - (index * 100)],
+                );
+              },
+            ),
           ),
         ),
       ),

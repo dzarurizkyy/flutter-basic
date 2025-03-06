@@ -19,7 +19,7 @@ class People extends Mammals with Ability {
   People({required this.name, required this.age});
 }
 
-// Function
+// Void Function
 void sum(double number1, double number2) {
   double result;
   result = number1 + number2;
@@ -28,11 +28,11 @@ void sum(double number1, double number2) {
 
 // Main Function
 void main() {
+  // Built-in Object
   print("Hello World 🌎!");
-
   sum(1, 2.5);
 
-  // Object
+  // Custom Object
   var people1 = People(name: "Dzaru Rizky", age: 21);
   print(people1.name);
   print(people1.age);

@@ -5,14 +5,7 @@ main() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-
-  final List<Color> myColor = [
-    Colors.blue[100]!,
-    Colors.blue[200]!,
-    Colors.blue[300]!,
-    Colors.blue[400]!
-  ];
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,24 +24,18 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.blue,
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 30,
-            horizontal: 20,
-          ),
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           child: ListView.separated(
             scrollDirection: Axis.vertical,
-            itemCount: myColor.length,
+            itemCount: 4,
             itemBuilder: (context, index) {
               return Container(
                 height: 330,
-                color: myColor[index],
+                color: Colors.blue[100 + (index * 100)],
               );
             },
             separatorBuilder: (context, index) {
-              return Container(
-                height: 15,
-                color: Colors.white70,
-              );
+              return Container(height: 15, color: Colors.white70);
             },
           ),
         ),

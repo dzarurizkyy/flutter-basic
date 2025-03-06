@@ -24,20 +24,18 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.blue,
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 25,
-            horizontal: 15,
-          ),
+          padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 15),
           child: ListView.separated(
             scrollDirection: Axis.vertical,
             itemCount: 4,
             itemBuilder: (context, index) {
               return ListTile(
+                leading: CircleAvatar(backgroundColor: Colors.blue[200]),
                 title: Text(
                   "Dzaru Rizky Fathan Fortuna",
                   style: TextStyle(
                     color: Colors.grey[800],
-                    fontSize: 13,
+                    fontSize: 12,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -47,30 +45,29 @@ class MyApp extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: Colors.grey[700],
-                    fontSize: 11,
+                    fontSize: 10,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                leading: CircleAvatar(
-                  backgroundColor: Colors.blue[200],
-                ),
-                trailing: Text("12.00 PM"),
-                dense: true,
-                contentPadding: EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: 20,
+                trailing: Text(
+                  "Recent",
+                  style: TextStyle(
+                    color: Colors.grey[500],
+                    fontSize: 8,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 tileColor: Colors.white,
+                dense: true,
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 8, horizontal: 20),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
               );
             },
             separatorBuilder: (context, index) {
-              return Container(
-                height: 15,
-                color: Colors.grey[100],
-              );
+              return Container(height: 15, color: Colors.grey[100]);
             },
           ),
         ),

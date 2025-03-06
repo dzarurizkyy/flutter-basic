@@ -36,11 +36,11 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 fontSize: 14,
                 letterSpacing: 1,
+                color: Colors.transparent,
                 decoration: TextDecoration.underline,
                 decorationStyle: TextDecorationStyle.dashed,
                 decorationColor: Colors.black26,
                 decorationThickness: 1,
-                color: Colors.transparent,
                 height: 2.2,
                 shadows: [
                   Shadow(
