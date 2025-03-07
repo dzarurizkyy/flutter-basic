@@ -20,39 +20,63 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           title: Text(
-            "Increment Apps",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            "Stateful Use",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.w700,
+            ),
           ),
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: Colors.blue,
         ),
-        body:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          Text(
-            counter.toString(),
-            style: TextStyle(fontSize: 50 + double.parse(counter.toString())),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      if (counter != 1) {
-                        counter--;
-                      }
-                    });
-                  },
-                  child: Icon(Icons.remove)),
-              ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      counter++;
-                    });
-                  },
-                  child: Icon(Icons.add))
-            ],
-          )
-        ]),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              counter.toString(),
+              style: TextStyle(fontSize: 50 + double.parse(counter.toString())),
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                3,
+                (index) {
+                  if (index == 1) {
+                    return SizedBox(width: 30);
+                  }
+
+                  return ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      padding: EdgeInsets.all(10),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(
+                        () {
+                          if (index == 0 && counter != 1) {
+                            counter--;
+                          }
+
+                          if (index == 2) {
+                            counter++;
+                          }
+                        },
+                      );
+                    },
+                    child: Icon(
+                      index == 0 ? Icons.remove : Icons.add,
+                      color: Colors.white,
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
